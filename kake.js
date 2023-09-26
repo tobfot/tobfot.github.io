@@ -1,19 +1,26 @@
 const lyd = new Audio("pop.mp3");
 
 let tidIgjen = 5;
-let tidsTimer = setInterval(tidstalking, 1000);
-function tidtracking() {
+let tidsTimer = setInterval(tidtaking, 1000);
+function tidtaking() {
     if(tidIgjen <= 0) {
-        
+        clearInterval(tidsTimer);
+        document.getElementById("infoskjerm").innerText = "Ferdig! Du fikk " + poengsum + " poeng.";
+        document.getElementById("kake").removeEventListener("click", klikk);
     }
+    else {
+        document.getElementById("infoskjerm").innerText = tidIgjen + " sekunder igjen.";
+    }
+
+    tidIgjen = tidIgjen - 1;
 }
 
-function stopp() {
-    //alert(stopp) 
-    alert("STOPP!")
-    poengsum = 0;
-    document.getElementById("kake").removeEventListener("click", klikk);
-}
+// function stopp() {
+//     //alert(stopp) 
+//     alert("STOPP!")
+//     poengsum = 0;
+//     document.getElementById("kake").removeEventListener("click", klikk);
+// }
 
 
 
@@ -70,10 +77,12 @@ function klikk() {
 document.getElementById("knap").addEventListener("click",restart)
 
 function restart(){
-    const timeout = setTimeout(stopp, 2000);
+    // const timeout = setTimeout(stopp, 2000);
     poengsum = 0;
-
     document.getElementById("poeng").innerText = poengsum;
-
     document.getElementById("kake").src = "R0.png";
+    document.getElementById("kake").addEventListener("click", klikk);
+
+    tidIgjen = 5;
+    tidsTimer = setInterval(tidtaking, 1000);
 }
