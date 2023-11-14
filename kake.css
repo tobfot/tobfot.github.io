@@ -9,3 +9,29 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+#knap {
+    background-color: blue;
+    color: aqua;
+}
+
+nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: blue;
+    
+    padding: 1rem;
+
+}
+nav a {
+    text-decoration: none; 
+    padding: 0.5rem;
+    color: rgb(255, 255, 255);
+}

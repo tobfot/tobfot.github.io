@@ -23,7 +23,6 @@ function tidtaking() {
 // }
 
 
-
 // henter ut kake-bildet og legger til en lyttefunksion som kjører når du klikker
 
 document.getElementById("kake").addEventListener("click",klikk)
